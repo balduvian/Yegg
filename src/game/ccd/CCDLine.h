@@ -3,7 +3,6 @@
 #define GAME_CCD_LINE
 
 #include "math/vector2.h"
-#include <iostream>
 
 namespace Game {
 	class CCDLine {
@@ -11,16 +10,16 @@ namespace Game {
 		CCDLine();
 
 		CCDLine(f32, f32, f32, f32);
-
+		CCDLine(f32, f32, f32, f32, const char*);
 		CCDLine(const Vector2f&, const Vector2f&&);
 		CCDLine(const Vector2f&&, const Vector2f&&);
 		CCDLine(const Vector2f*, const Vector2f*);
-		CCDLine(const CCDLine*, i32, i32);
-
-		friend auto operator<<(std::ostream&, const CCDLine&) -> std::ostream&;
 
 		Vector2f start;
 		Vector2f end;
+
+		//DEBUG
+		const char* name;
 
 		auto set(f32, f32, f32, f32) -> void;
 		auto set(const Vector2f*, const Vector2f*) -> void;
@@ -28,8 +27,6 @@ namespace Game {
 		auto toVector() -> Vector2f;
 
 		auto operator+(const Vector2f&) -> CCDLine;
-		auto operator-(const Vector2f&)->CCDLine;
-		auto operator*(f32)->CCDLine;
 
 		auto setEnd(const Vector2f&) -> void;
 	};

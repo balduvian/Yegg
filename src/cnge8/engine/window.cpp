@@ -72,8 +72,8 @@ namespace CNGE {
 		auto vHeight = videoMode->height;
 
 		// set the positions of the window to center inside the monitor
-		width = full ? vWidth : vWidth / 2;
-		height = full ? vHeight : vHeight / 2;
+		width = vWidth / 2;
+		height = vHeight / 2;
 		x = vWidth / 4;
 		y = vHeight / 4;
 

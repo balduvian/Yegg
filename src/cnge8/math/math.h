@@ -24,7 +24,7 @@ namespace CNGE {
 	}
 
 	template<typename T>
-	auto interp(T start, T end, f32 along) -> T {
+	auto interp(T start, T end, T along) -> T {
 		return (end - start) * along + start;
 	}
 
@@ -41,15 +41,6 @@ namespace CNGE {
 	template<typename T>
 	auto exclusiveRange(T low, T value, T high) -> bool {
 		return (value > low) && (value < high);
-	}
-
-	template<typename T>
-	auto minMax(T& a, T& b) -> void {
-		if (a > b) {
-			auto temp = a;
-			a = b;
-			b = temp;
-		}
 	}
 }
 

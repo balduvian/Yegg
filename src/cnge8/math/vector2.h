@@ -714,7 +714,7 @@ Vector<2, T> & setAngle(const Vector<2, T> & vector, T angle, Vector<2, T> & tar
 }
 
 template <typename T>
-Vector<2, T> rotate(const Vector<2, T> & vector, T angle) {
+Vector<2, T> & rotate(const Vector<2, T> & vector, T angle) {
 	auto   sine = sin(angle);
 	auto cosine = cos(angle);
 	return {

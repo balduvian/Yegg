@@ -50,7 +50,7 @@ namespace CNGE {
 
 		// add the rest of the custom attributes
 		for (auto i = 0; i < attribCount; ++i) {
-			attribs[i].genBuffers();
+			attribs[i].deleteBuffers();
 			add_attribute(attribs[i], i + 1);
 		}
 
@@ -88,11 +88,6 @@ namespace CNGE {
 
 	/// actually draws this vao
 	void VAO::render() {
-		glBindVertexArray(vao);
-		glDrawElements(drawMode, indexCount, GL_UNSIGNED_INT, 0);
-	}
-
-	void VAO::render(i32) {
 		glBindVertexArray(vao);
 		glDrawElements(drawMode, indexCount, GL_UNSIGNED_INT, 0);
 	}

@@ -19,25 +19,6 @@ namespace Game {
 		CardRect();
 	};
 
-	class EggShape : public CNGE::VAO {
-	public:
-		EggShape();
-	};
-
-	class EggshellShape : public CNGE::VAO {
-	public:
-		EggshellShape();
-	};
-
-	class Triangle : public CNGE::VAO {
-	public:
-		Triangle();
-	};
-
-	class LauncherShape : public CNGE::VAO {
-	public:
-		LauncherShape();
-	};
 }
 
 #endif

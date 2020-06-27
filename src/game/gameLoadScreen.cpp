@@ -1,6 +1,6 @@
 
 #include "gameLoadScreen.h"
-#include "res.h"
+#include "gameResources.h"
 
 #include "../cnge8/engine/transform.h"
 
@@ -22,12 +22,12 @@ namespace Game {
 	}
 
 	auto GameLoadScreen::render(CNGE::Resource* current, i32 along, i32 total) -> void {
-		Res::colorShader.enable();
-		Res::colorShader.giveColor(backgroundColor);
-		Res::rect.render();
+		GameResources::colorShader.enable();
+		GameResources::colorShader.giveColor(backgroundColor);
+		GameResources::rect.render();
 
-		Res::colorShader.enable(CNGE::Transform::toModel(2, 2, 0, 6, 5), camera.getProjview());
-		Res::colorShader.giveColor(mainColor);
-		Res::rect.render();
+		GameResources::colorShader.enable(CNGE::Transform::toModel(2, 2, 0, 6, 5), camera.getProjview());
+		GameResources::colorShader.giveColor(mainColor);
+		GameResources::rect.render();
 	}
 }

@@ -53,12 +53,6 @@ namespace CNGE {
 		return matrix.m;
 	}
 
-	float* Transform::toModelRC(f32 x, f32 y, f32 rotation, f32 width, f32 height) {
-		matrix.setTranslate2D(x + width / 2, y + height / 2).rotate2D(rotation).translate2D(-width / 2, -height / 2).scale2D(width, height);
-
-		return matrix.m;
-	}
-
 	/// modifies a mat4 based on this transform
 	void Transform::transform(Matrix4f& mat) {
 		transform(mat, translation.x(), translation.y(), rotation, scale.x(), scale.y());

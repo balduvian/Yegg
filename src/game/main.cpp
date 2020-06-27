@@ -6,17 +6,15 @@
 #include "../cnge8/engine/loop.h"
 #include "audio/audioDevice.h"
 
-#include "res.h"
-#include "scene/gameSceneManager.h"
-#include "scene/gameScene.h"
+#include "gameResources.h"
+#include "gameSceneManager.h"
+#include "gameScene.h"
 #include "gameLoadScreen.h"
-
-#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 
 int main(int argc, char* argv) {
 	/* init glfw and opengl */
 	CNGE::Window::init();
-	auto window = CNGE::Window(3, 3, true, true, "Yegg", CNGE::Window::getPrimaryMonitor(), false, true);
+	auto window = CNGE::Window(3, 3, true, true, "CNGE Test Demo", CNGE::Window::getPrimaryMonitor(), false, true);
 	CNGE::Window::wrangle();
 
 	/* init openal */
@@ -24,12 +22,13 @@ int main(int argc, char* argv) {
 	CNGE::AudioDevices::getDefaultOutputDevice()->setActive();
 
 	/* open enables */
-	//glEnable(GL_CLIP_DISTANCE0);
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_CLIP_DISTANCE0);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// get load screen ready
-	Game::Res::loadScreenResources.load(true).quickUpdate();
+	Game::GameResources::loadScreenResources.load(true).quickUpdate();
 
 	auto sceneManager = Game::GameSceneManager();
 

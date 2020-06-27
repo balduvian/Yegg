@@ -32,7 +32,6 @@ namespace CNGE {
 		/// returns the float values for a model matrix based on given params
 		/// no instance of a transform needed
 		static float* toModel(f32 x, f32 y, f32 rotation, f32 width, f32 height);
-		static float* toModelRC(f32 x, f32 y, f32 rotation, f32 width, f32 height);
 
 		/// modifies a mat4 based on this transform's internal values
 		void transform(Matrix4f&);

@@ -6,8 +6,6 @@
 
 #include "texture.h"
 
-#include <iostream>
-
 namespace CNGE {
 	float Texture::tileValues[4]{ 1, 1, 0, 0 };
 	const float Texture::DEFAULT_TILE_VALUES[4]{ 1, 1, 0, 0 };

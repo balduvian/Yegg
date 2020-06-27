@@ -37,8 +37,6 @@ namespace CNGE {
 		u32 getWidth();
 		u32 getHeight();
 
-		auto screenToGameX(i32) -> f32;
-		auto screenToGameY(i32) -> f32;
 	};
 
 }

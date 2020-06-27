@@ -42,8 +42,7 @@ namespace CNGE
 		/// actually draws this vao
 		void render();
 
-		void render(i32);
-
+		
 	protected:
 		void customGather() {} // no gather
 		void customDiscard() {};

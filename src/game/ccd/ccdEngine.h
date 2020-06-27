@@ -7,46 +7,42 @@
 
 #include "ccdLine.h"
 #include "ccdMemory.h"
-#include "../map/blockMap.h"
-#include "../egg/hitbox.h"
-#include "../map/rotation.h"
 
 namespace Game {
-	class BlockMap;
-
 	struct CollStruct {
-		Block* block;
-		Vector2f wallVector;
+		CCDLine* line;
 		Vector2f position;
 		i32 side;
 
-		CollStruct(Block*, Vector2f&, Vector2f&&, i32);
+		CollStruct(CCDLine*, Vector2f&&, i32);
 	};
 
 	class CCDEngine {
 	private:
 		constexpr static u32 MEMORY_SIZE = 8;
 
+		/* between runs */
+		CCDMemory persistentMemory;
+
 		/* during a run */
 		bool foundCol;
 		float closestT;
+		CCDMemory tempMemory;
 
 		/* result */
 		std::unique_ptr<CollStruct> collision;
 
+	protected:
+		virtual auto gather(CCDLine&& movement, Vector2f& offset) -> void = 0;
+
 	public:
 		CCDEngine();
 
-		auto start(std::vector<Hitbox>&, CCDLine, BlockMap*) -> void;
+		auto test(CCDLine& movement, Vector2f& offset, CCDLine* wall) -> void;
 
-		auto gatherForHitbox(CCDLine&&, Hitbox&, BlockMap*) -> void;
+		auto start(std::vector<Vector2f>&, CCDLine) -> void;
 
-		auto lineTest(Block*, CCDLine&, Vector2f&, CCDLine&) -> void;
-		auto circleTest(CCDLine&, Vector2f&, Vector2f, f32) -> void;
-
-		auto getCollision()->CollStruct*;
-
-		i32 left, right, down, up;
+		auto getCollision() -> CollStruct*;
 	};
 }
 

@@ -104,15 +104,4 @@ namespace CNGE {
 		return portH;
 	}
 
-	auto Aspect::screenToGameX(i32 screenX) -> f32 {
-		screenX -= portX;
-		auto screenT = screenX / (f32)portW;
-		return screenT *= gameWidth;
-	}
-
-	auto Aspect::screenToGameY(i32 screenY) -> f32 {
-		screenY -= portY;
-		auto screenT = screenY / (f32)portH;
-		return screenT *= gameHeight;
-	}
 }
